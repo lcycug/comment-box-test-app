@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "actions";
 
 class CommentBox extends Component {
   handleSubmit = event => {
-    const { addComment } = this.props;
-    event.preventDefault();
-    if (document.getElementById("comments").value.trim() === "") return;
-    addComment(document.getElementById("comments").value);
-    document.getElementById("comments").value = "";
-    document.getElementById("comments").focus();
+    console.log("dd:" + JSON.stringify(this.props));
+    const { saveComment } = this.props;
+    let $textArea = document.getElementById("comment-box");
+    if ($textArea.value.trim() === "") return;
+    saveComment($textArea.value);
+    $textArea.value = "";
+    $textArea.focus();
   };
   render() {
     return (
       <div>
         <h3>Leave some commnets below:</h3>
-        <textarea name="comments" id="comments" cols="30" rows="10" />
+        <textarea id="comment-box" cols="30" rows="10" />
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
@@ -23,7 +25,7 @@ class CommentBox extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addComment: content => dispatch({ type: "ADD", content })
+  saveComment: content => dispatch({ type: "save_comment", content })
 });
 
 export default connect(
