@@ -5,6 +5,7 @@ class CommentBox extends Component {
   handleSubmit = event => {
     const { addComment } = this.props;
     event.preventDefault();
+    if (document.getElementById("comments").value.trim() === "") return;
     addComment(document.getElementById("comments").value);
     document.getElementById("comments").value = "";
     document.getElementById("comments").focus();
