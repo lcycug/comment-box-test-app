@@ -3,32 +3,38 @@ import { connect } from "react-redux";
 import * as actions from "actions";
 
 class CommentBox extends Component {
+  state = { comment: "" };
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.props);
+    const { comment } = this.state;
+    if (comment.trim() === "") return;
+
     const { saveComment } = this.props;
-    let $textArea = document.getElementById("comment-box");
-    console.log($textArea.value);
-    if ($textArea.value.trim() === "") return;
-    saveComment($textArea.value);
-    $textArea.value = "";
-    $textArea.focus();
+    saveComment(comment);
+    this.setState({ comment: "" });
   };
+
+  handleChange = event => {
+    this.setState({ comment: event.target.value });
+  };
+
   render() {
     return (
       <form>
-        <h3>Leave some commnets below:</h3>
-        <textarea id="comment-box" cols="30" rows="10" />
+        <h3>Leave some comments below:</h3>
+        <textarea
+          id="comment-box"
+          cols="30"
+          rows="10"
+          value={this.state.comment}
+          onChange={this.handleChange}
+        />
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
       </form>
     );
   }
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   saveComment: content => dispatch({ type: "save_comment", content })
-// });
 
 export default connect(
   null,
