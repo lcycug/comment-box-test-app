@@ -9,11 +9,14 @@ class CommentList extends React.Component {
   render() {
     const { comments } = this.props;
     return (
-      <ul>
-        {comments.map((comment, i) => (
-          <li key={i}>{comment}</li>
-        ))}
-      </ul>
+      <>
+        <h3>Comments List</h3>
+        <ul>
+          {comments.map((comment, i) => (
+            <li key={i}>{comment}</li>
+          ))}
+        </ul>
+      </>
     );
   }
 }

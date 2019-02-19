@@ -6,3 +6,21 @@
 li {
   list-style-type: none;
 }
+
+ul.nav-header li {
+  display: inline;
+  padding: 0 20px;
+}
+
+ul.nav-header a {
+  color: blue;
+}
+
+ul.nav-header a[disabled] {
+  color: #636060;
+  cursor: not-allowed;
+}
+
+li > button {
+  width: 80px;
+}
