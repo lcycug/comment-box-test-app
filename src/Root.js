@@ -1,5 +1,5 @@
 import React from "react";
-import reducer from "reducer";
+import reducer from "reducers";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 

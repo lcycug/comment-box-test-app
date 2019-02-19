@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import CommentBox from "components/CommentBox";
 import CommentList from "components/CommentList";
+import * as actions from "actions";
 
 class App extends Component {
   render() {
@@ -15,4 +17,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  null,
+  actions
+)(App);
