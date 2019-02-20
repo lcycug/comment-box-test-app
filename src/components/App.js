@@ -6,6 +6,9 @@ import CommentList from "components/CommentList";
 import * as actions from "actions";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchComments();
+  }
   Header = () => {
     return (
       <ul className="nav-header">

@@ -16,7 +16,7 @@ class CommentList extends React.Component {
     return (
       <>
         <h3>Comments List</h3>
-        <button onClick={this.handleFetch}>Fetch Comments</button>
+        {/*<button onClick={this.handleFetch}>Fetch Comments</button>*/}
         <ul>
           {comments.map((comment, i) => (
             <li key={i}>{comment}</li>
