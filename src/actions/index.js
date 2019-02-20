@@ -1,4 +1,5 @@
-import { SAVE_COMMENT, SWITCH_AUTH } from "actions/types";
+import { SAVE_COMMENT, SWITCH_AUTH, FETCH_COMMENTS } from "actions/types";
+import axios from "axios";
 
 export const saveComment = comment => {
   return {
@@ -11,5 +12,13 @@ export const switchAuth = isLoggedIn => {
   return {
     type: SWITCH_AUTH,
     payload: isLoggedIn
+  };
+};
+
+export const fetchComments = () => {
+  const response = axios.get("https://jsonplaceholder.typicode.com/comments");
+  return {
+    type: FETCH_COMMENTS,
+    payload: response
   };
 };
