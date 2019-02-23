@@ -27,11 +27,19 @@ class App extends Component {
   handleSignIn = auth => {
     if (auth) {
       return (
-        <button onClick={() => this.props.switchAuth(false)}>Sign Out</button>
+        <button
+          className="btn btn-outline-danger text-dark"
+          onClick={() => this.props.switchAuth(false)}>
+          Sign Out
+        </button>
       );
     } else {
       return (
-        <button onClick={() => this.props.switchAuth(true)}>Sign In</button>
+        <button
+          className="btn btn-outline-success text-dark"
+          onClick={() => this.props.switchAuth(true)}>
+          Sign In
+        </button>
       );
     }
   };
